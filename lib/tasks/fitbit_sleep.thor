@@ -1,11 +1,12 @@
 require 'net/http'
 require 'uri'
 require 'dotenv'
+require 'rails'
 
 class FitbitSleep < Thor
   desc 'sleep', 'get sleep time form fitbit api'
   def sleep
-    Dotenv.load ".env"
+    Dotenv.load ".env" if Rails.env.development?
     uri = URI.parse('https://api.fitbit.com/1.2/user/-/sleep/date/2018-07-20.json')
     https = Net::HTTP.new(uri.host, uri.port)
 
