@@ -1,0 +1,2 @@
+class FitbitToken < ApplicationRecord
+end
