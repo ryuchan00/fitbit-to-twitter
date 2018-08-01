@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# ref http://blog.mirakui.com/entry/2012/01/19/123155
 require File.expand_path('../../../config/application',  __FILE__)
 Rails.application.require_environment!
 
