@@ -1,12 +1,13 @@
+#!/usr/bin/env ruby
+require File.expand_path('../../../config/application',  __FILE__)
+Rails.application.require_environment!
+
+require 'thor'
 require 'net/http'
 require 'uri'
 require 'dotenv'
-require 'rails'
-require 'thor'
 
 class FitbitSleep < Thor
-  include Thor::Actions
-
   desc 'sleep', 'get sleep time form fitbit api'
   def sleep
     Dotenv.load ".env" if Rails.env.development?
