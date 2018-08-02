@@ -16,5 +16,9 @@ module FitbitToTwitter
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+
+    config.active_record.default_timezone = :local
+    config.time_zone = 'Tokyo'
   end
 end
