@@ -10,6 +10,10 @@ require 'thor'
 class FitbitSleep < Thor
   desc 'sleep', 'get sleep time form fitbit api'
   def sleep
+    if completed_today
+      puts "completed today task"
+      return
+    end
 
     fitbit_token = FitbitToken.last
 
@@ -80,6 +84,13 @@ class FitbitSleep < Thor
         puts "msg -> #{res.message}"
         puts "body -> #{res.body}"
       end
+
+      TweetLog.create
+    end
+  end
+  no_commands do
+    def completed_today
+      TweetLog.where('created_at >= ?', Time.current.beginning_of_day).last
     end
   end
 end
