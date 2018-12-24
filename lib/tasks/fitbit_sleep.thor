@@ -6,6 +6,7 @@ require File.expand_path('../../../config/application',  __FILE__)
 Rails.application.require_environment!
 
 require 'thor'
+require 'net/http'
 
 class FitbitSleep < Thor
   desc 'sleep', 'get sleep time form fitbit api'
